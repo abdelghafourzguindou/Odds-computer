@@ -1,0 +1,34 @@
+spring:
+  main:
+    banner-mode: off
+    web-application-type: none
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: "jdbc:sqlite::memory:"
+  jpa:
+    database-platform: com.starwars.odds.configuration.SQLite.SQLiteDialect
+    hibernate.ddl-auto: update
+    hibernate:
+      dialect: com.starwars.odds.configuration.SQLite.SQLiteDialect
+logging:
+  level:
+    root: OFF
+
+---
+spring:
+  config:
+    activate:
+      on-profile: web
+  main:
+    banner-mode: console
+    web-application-type: servlet
+  cors:
+    allowed-origins: "*"
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          filter:
+            CommonsRequestLoggingFilter: DEBUG
+    root: info
