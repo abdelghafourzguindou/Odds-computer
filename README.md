@@ -3,6 +3,12 @@
 The project was build using [spring boot framework](https://spring.io/projects/spring-boot).  
 The project uses maven and java 17
 
+### Installation
+
+To launch the project you will need the jdk17 of graalvm with the native-image tool.
+- You can use [SDKMAN](https://sdkman.io/install) to manage all your SDK and install the graalVM JDK.
+- Then install [native image](https://www.graalvm.org/22.0/reference-manual/native-image/#install-native-image)
+
 ## Web
 There is only one endpoint of type post allowing to obtain the odds.
 The project needs a [millennium-falcon.json file](src/main/resources/millennium-falcon.json) containing all the configuration about the Millennium Falcon.  
@@ -23,18 +29,13 @@ The [`routes_db`](src/main/resources/universe.db) property should redirect to a 
 
 To run the project locally, use the command below:
 ```shell
+mcn clean install -Pweb -DskipTests
 mvn spring-boot:run -Dspring-boot.run.profiles=web 
 ```
 
 
 ## CLI
 The project uses [Picocli](https://picocli.info/) library to generate a CLI with Java and spring boot native to create a native executable working without JVM thanks to [GraalVM](https://www.graalvm.org/)
-
-### Installation
-
-To launch the project you will need the jdk17 of graalvm with the native-image tool.
-- You can use [SDKMAN](https://sdkman.io/install) to manage all your SDK and install the graalVM JDK.
-- Then install [native image](https://www.graalvm.org/22.0/reference-manual/native-image/#install-native-image)
 
 ### Configuration
 

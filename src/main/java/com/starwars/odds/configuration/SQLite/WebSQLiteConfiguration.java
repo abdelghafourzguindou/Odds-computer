@@ -31,8 +31,7 @@ public class WebSQLiteConfiguration {
                 .requireNonNull(this.getClass()
                         .getClassLoader()
                         .getResource(millenniumFalconConfiguration.getRoutesDb()))
-                .getPath()
-                .replace("%20", " ");
+                .getPath();
 
         dataSource.setDriverClassName(driverClassName);
 
